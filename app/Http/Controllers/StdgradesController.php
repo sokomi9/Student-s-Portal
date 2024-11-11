@@ -7,18 +7,6 @@ use App\Models\Stdgrade;
 
 class StdgradesController extends Controller
 {
-    // function addgrades(){
-    //     $stdgrades = Stdgrade::insert([
-    //         'first_name'=>'Ray',
-    //         'last_name'=>'Kevins',
-    //         'mathematics'=>'A',
-    //         'english'=>'A',
-    //         'swahili'=>'B',
-    //         'biology'=>'B',
-    //         'chemistry'=>'A'
-    //     ]);
-
-    // }
 
     function showGrades(){
        // $stdgrades = Stdgrade::where('first_name','Ray')->delete();
