@@ -12,9 +12,9 @@ class StudentsController extends Controller
         $students->first_name = $request->first_name;
         $students->last_name = $request->last_name;
         $students->email = $request->email;
-        $result = $students->save();
 
-        if ($request) {
+
+        if ($students->save()) {
             return redirect('/');
         } else {
             echo "Student enrollment unsuccessful";
@@ -31,6 +31,22 @@ class StudentsController extends Controller
             return redirect('/');
         }else{
             echo "Record deletion unsuccessful";
+        }
+    }
+    function populateStudent($id){
+        $findStudent = Student::find($id);
+        return view('update-student', ['data'=>$findStudent]);
+    }
+    function updateStudent(Request $request, $id){
+        $student = Student::find($id);
+        $student->first_name = $request->first_name;
+        $student->last_name = $request->last_name;
+        $student->email = $request->email;
+
+        if ($student->save()) {
+            return redirect('/');
+        }else {
+            echo "Student's details not updated";
         }
     }
 }

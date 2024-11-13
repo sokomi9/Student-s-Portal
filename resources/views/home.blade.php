@@ -16,7 +16,7 @@
         <td>{{$student->last_name}}</td>
         <td>{{$student->email}}</td>
         <td><a href="{{'delete/'.$student->id}}">Delete</a></td>
-        <!-- <td><a href="{{'update/'.$student->id}}">Delete</a></td> -->
+        <td><a href="{{'populate_student/'.$student->id}}">Update</a></td>
         </tr>
         @endforeach
      </table>
