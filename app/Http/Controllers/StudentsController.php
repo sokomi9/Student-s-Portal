@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Database\Eloquent\Collection;
 
 class StudentsController extends Controller
 {
@@ -22,7 +23,7 @@ class StudentsController extends Controller
 
     }
     function list(){
-        $students = Student::paginate(10);
+        $students = Student::paginate(15);
         return view('home', ['my_list'=>$students]);
     }
     function delete($id){
@@ -48,5 +49,11 @@ class StudentsController extends Controller
         }else {
             echo "Student's details not updated";
         }
+    }
+    function search(Request $request){
+        $students = Student::where('last_name','like',"%$request->search%")->get();
+        return view('home',['my_list'=>$students, 'search'=>$request->search]);
+        //return $students;
+        //return $request->search;
     }
 }

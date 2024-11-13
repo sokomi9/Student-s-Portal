@@ -1,5 +1,10 @@
 <div>
     <h1>My Students</h1>
+    <form action="search" method="get">
+        <input type="text" name="search" placeholder="Search by last name"
+        value="{{@$search}}">
+        <button type="submit">Search</button>
+    </form>
     <a href="{{url('add')}}" target="_blank" rel="noopener noreferrer">Enroll New Student</a>
     <br><br>
      <table border="1">
